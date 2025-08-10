@@ -1,14 +1,18 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-    server: { port: 5173, open: '/bruja/inicio.html' },
+    server: {
+        port: 5173,
+        open: '/bruja/inicio.html'
+    },
     build: {
         rollupOptions: {
             input: {
-                home: 'index.html',          // ← meta-redirect a /bruja/inicio.html
-                juego: 'juego.html',          // el juego
-                inicio: 'bruja/inicio.html'    // la portada
+                index: resolve(__dirname, 'index.html'),
+                inicio: resolve(__dirname, 'bruja/inicio.html'),
+                juego: resolve(__dirname, 'juego.html')
             }
         }
     }
-})
+});
