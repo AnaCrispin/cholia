@@ -1,16 +1,9 @@
 import { defineConfig } from 'vite'
-
 export default defineConfig({
-    server: {
-        port: 5173,
-        open: '/bruja/inicio.html'   // <- abre tu portada
-    },
+    server: { port: 5173, open: '/bruja/inicio.html' },
     build: {
         rollupOptions: {
-            input: {
-                juego: 'index.html',            // tu juego del raíz
-                inicio: 'bruja/inicio.html'     // tu portada en /bruja
-            }
+            input: { juego: 'index.html', inicio: 'bruja/inicio.html' }
         }
     }
 })
