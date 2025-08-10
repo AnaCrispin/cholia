@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cholita Run & Gun</title>
+
+  <link rel="stylesheet" href="/src/style.css" />
+  <style>
+    /* === Estilos exclusivos del menú de inicio === */
+    #menu {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85) url('/src/assets/menu-bg.png') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    #menu h1 {
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+      margin-bottom: 15px;
+    }
+
+    #menu form {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 250px;
+    }
+
+    #menu input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    #menu button {
+      padding: 10px;
+      background: #ff7f50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #menu button:hover {
+      background: #ff6347;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="menu">
+    <h1>La Cholita Embrujada</h1>
+    <form id="login-form">
+      <button type="submit">Iniciar Juego</button>
+    </form>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <div class="hud">
+    <span>❤️ <b id="hp">3</b></span>
+    <span>🔫 <b id="ammo">∞</b></span>
+    <span>👾 <b id="score">0</b></span>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Mostrar el juego cuando se envía el formulario
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById('game').style.display = 'block';
+    });
+  </script>
+</body>
+
+</html>
